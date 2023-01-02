@@ -32,7 +32,9 @@ dependencies {
     implementation("jakarta.annotation:jakarta.annotation-api")
 
     compileOnly("io.micronaut:micronaut-http-validation")
-    compileOnly("io.micronaut.openapi:micronaut-openapi")
+    compileOnly("io.micronaut.openapi:micronaut-openapi"){
+        exclude module:"slf4j-nop"
+    }
 
     runtimeOnly("ch.qos.logback:logback-classic")
 
