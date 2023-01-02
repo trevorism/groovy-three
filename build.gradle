@@ -17,7 +17,6 @@ plugins {
 
 apply plugin: 'com.google.cloud.tools.appengine'
 
-version = "0.2"
 group = "com.trevorism"
 
 repositories {
@@ -61,7 +60,7 @@ tasks.withType(JavaCompile) {
 }
 
 appengine {
-    stage.artifact = "${buildDir}/libs/${project.name}-${project.version}-all.jar"
+    stage.artifact = "${buildDir}/libs/${project.name}-all.jar"
     deploy {
         projectId = "trevorism-gcloud"
         version = "0-2-0"
