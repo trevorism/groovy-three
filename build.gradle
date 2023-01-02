@@ -54,11 +54,6 @@ micronaut {
     }
 }
 
-tasks.withType(GroovyCompile) {
-    options.fork = true
-    options.forkOptions.jvmArgs << '-Dmicronaut.openapi.property.naming.strategy=SNAKE_CASE,micronaut.openapi.views.spec=rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop'
-}
-
 appengine {
     stage.artifact = "${buildDir}/libs/${project.name}-all.jar"
     deploy {
