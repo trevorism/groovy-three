@@ -54,6 +54,11 @@ micronaut {
     }
 }
 
+tasks.withType(GroovyCompile) {
+    groovyOptions.forkOptions.jvmArgs.add('-Dgroovy.parameters=true')
+    groovyOptions.forkOptions.jvmArgs.add('-Dmicronaut.openapi.views.spec=rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop')
+}
+
 appengine {
     stage.artifact = "${buildDir}/libs/${project.name}-all.jar"
     deploy {

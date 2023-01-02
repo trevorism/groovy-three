@@ -1,5 +1,6 @@
 package com.trevorism.controller
 
+import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
@@ -31,6 +32,13 @@ class RootController {
     @Get(value = "/ping", produces = MediaType.TEXT_PLAIN)
     String ping() {
         return "pong"
+    }
+
+    @Operation(summary = "help")
+    @ApiResponse(responseCode = "302")
+    @Get(value = "/help")
+    HttpResponse<String> help() {
+        return HttpResponse.redirect(new URI("swagger/views/swagger-ui/index.html"))
     }
 
     @Operation(summary = "version")
