@@ -1,4 +1,4 @@
-package groovy.three
+package com.trevorism
 
 import io.micronaut.runtime.Micronaut
 import io.swagger.v3.oas.annotations.OpenAPIDefinition
