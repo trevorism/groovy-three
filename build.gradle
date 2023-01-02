@@ -8,7 +8,6 @@ buildscript {
     }
 }
 
-
 plugins {
     id("groovy") 
     id("com.github.johnrengelman.shadow") version "7.1.2"
@@ -64,6 +63,6 @@ appengine {
     stage.artifact = "${buildDir}/libs/${project.name}-${project.version}-all.jar"
     deploy {
         projectId = "trevorism-gcloud"
-        version = "0-1-1"
+        version = "0-1-2"
     }
 }
