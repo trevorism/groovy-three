@@ -24,19 +24,19 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor("io.micronaut.openapi:micronaut-openapi:4.8.1")
-    compileOnly ("io.swagger.core.v3:swagger-annotations")
 
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut.groovy:micronaut-runtime-groovy")
+    implementation("io.swagger.core.v3:swagger-annotations")
     implementation("jakarta.annotation:jakarta.annotation-api")
-    compileOnly("io.micronaut:micronaut-http-validation")
-    runtimeOnly("ch.qos.logback:logback-classic")
-    implementation("io.micronaut:micronaut-validation")
 
-    testImplementation("io.micronaut.test:micronaut-test-junit5")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    compileOnly("io.micronaut:micronaut-http-validation")
+    compileOnly("io.micronaut.openapi:micronaut-openapi")
+
+    runtimeOnly("ch.qos.logback:logback-classic")
+
+    implementation("io.micronaut:micronaut-validation")
 }
 
 
@@ -47,14 +47,14 @@ application {
 graalvmNative.toolchainDetection = false
 micronaut {
     runtime("netty")
-    testRuntime("junit")
+    testRuntime("junit5")
     processing {
         incremental(true)
         annotations("com.trevorism.*")
     }
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(GroovyCompile) {
     options.fork = true
     options.forkOptions.jvmArgs << '-Dmicronaut.openapi.property.naming.strategy=SNAKE_CASE,micronaut.openapi.views.spec=rapidoc.enabled=true,swagger-ui.enabled=true,swagger-ui.theme=flattop'
 }
