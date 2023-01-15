@@ -1,6 +1,8 @@
 micronaut:
   application:
     name: groovyThree
+  server:
+    http-to-https-redirect: true
   security:
     enabled: true
     token:
