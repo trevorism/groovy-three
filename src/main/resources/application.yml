@@ -1,8 +1,6 @@
 micronaut:
   application:
     name: groovyThree
-  ssl:
-    enabled: true
   security:
     enabled: true
     token:
