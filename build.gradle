@@ -42,25 +42,25 @@ repositories {
 }
 
 dependencies {
-    implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut.groovy:micronaut-runtime-groovy")
-    implementation("io.swagger.core.v3:swagger-annotations")
-    implementation("jakarta.annotation:jakarta.annotation-api")
-    implementation("io.micronaut.security:micronaut-security-jwt")
-    implementation 'io.projectreactor:reactor-core:3.5.2'
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut:micronaut-validation")
 
-    compileOnly("io.micronaut:micronaut-http-validation")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    implementation 'io.projectreactor:reactor-core:3.5.2'
+
+    implementation("io.swagger.core.v3:swagger-annotations")
     compileOnly("io.micronaut.openapi:micronaut-openapi"){
         exclude module:"slf4j-nop"
     }
 
-    implementation 'com.trevorism:secure-utils:4.0.0'
     runtimeOnly("ch.qos.logback:logback-classic")
+    implementation 'org.slf4j:slf4j-simple:2.0.6'
+
+    implementation 'com.trevorism:secure-utils:4.0.0'
 
     acceptanceImplementation 'io.cucumber:cucumber-groovy:6.10.4'
-    acceptanceImplementation 'org.slf4j:slf4j-simple:2.0.6'
 }
 
 application {
