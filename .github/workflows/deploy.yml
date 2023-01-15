@@ -30,6 +30,13 @@ jobs:
           service_account: 'github-trevorism-gcloud@trevorism-gcloud.iam.gserviceaccount.com'
           workload_identity_provider: 'projects/159773244195/locations/global/workloadIdentityPools/github-trevorism-gcloud-pool/providers/trevorism-gcloud-provider'
 
+      - name: Create secrets file
+        uses: Amadevus/pwsh-script@v2
+        id: script
+        with:
+          script: |
+            Add-Content -Path .\src\main\resources\secrets.properties -Value 'signingKey=${{ secrets.SIGNING_KEY }}'
+
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2.3.1
         env:

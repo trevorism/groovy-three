@@ -1,9 +1,13 @@
 package com.trevorism.controller
 
+import com.trevorism.secure.Roles
+import com.trevorism.secure.Secure
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
+import io.micronaut.security.annotation.Secured
+import io.micronaut.security.rules.SecurityRule
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
 import io.swagger.v3.oas.annotations.media.Schema
@@ -50,6 +54,7 @@ class RootController {
                     schema = @Schema(type = "string"))
     )
     @Get(value = "/version", produces = MediaType.TEXT_PLAIN)
+    @Secure(value = Roles.ADMIN)
     String version() {
         return "0-3-1"
     }
