@@ -1,6 +1,13 @@
 micronaut:
   application:
     name: groovyThree
+  security:
+    enabled: true
+    token:
+      enabled: false
+    redirect:
+      enabled: false
+
   router:
     static-resources:
       swagger:
